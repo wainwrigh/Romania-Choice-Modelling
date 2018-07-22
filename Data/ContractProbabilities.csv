@@ -1,0 +1,17 @@
+Animal,Subsidy,Participation,Type
+Bovine,20,0.36,Optimal
+Bovine,60,0.58,Optimal
+Bovine,120,0.84,Optimal
+Bovine,200,0.97,Optimal
+Bovine,20,0.004,Non-Optimal
+Bovine,60,0.009,Non-Optimal
+Bovine,120,0.27,Non-Optimal
+Bovine,200,0.7,Non-Optimal
+Ovine,1,0.58,Optimal
+Ovine,3,0.78,Optimal
+Ovine,6,0.9,Optimal
+Ovine,10,0.98,Optimal
+Ovine,1,0.02,Non-Optimal
+Ovine,3,0.05,Non-Optimal
+Ovine,6,0.13,Non-Optimal
+Ovine,10,0.49,Non-Optimal

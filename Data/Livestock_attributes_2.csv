@@ -1,0 +1,10 @@
+Rank1,Cultural tradition,Yield,Fertility ,Adaptability ,Disease / parasitic resistance ,Veterinary bills ,Management and handling,Quality of products prodcued 
+1,0.14,0.38,0.04,0.13,0.10,0.03,0.04,0.13
+2,0.08,0.17,0.14,0.30,0.18,0.00,0.11,0.03
+3,0.09,0.12,0.10,0.09,0.19,0.13,0.13,0.13
+,RB,RB,RB,RB,RB,RB,RB,RB
+Rank2,Cultural tradition,Yield,Fertility ,Adaptability ,Disease / parasitic resistance ,Veterinary bills ,Management and handling,Quality of products prodcued 
+1,0.21,0.34,0.05,0.14,0.05,0.02,0.09,0.11
+2,0.06,0.23,0.15,0.17,0.20,0.06,0.05,0.09
+3,0.01,0.11,0.12,0.21,0.16,0.10,0.14,0.15
+,NRB,NRB,NRB,NRB,NRB,NRB,NRB,NRB
