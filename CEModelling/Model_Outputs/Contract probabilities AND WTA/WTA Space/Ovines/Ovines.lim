@@ -1,0 +1,520 @@
+|-> RESET
+O---------------------------------------------------------O
+| NLOGIT 5  (tm)                 Sep 21, 2017, 11:48:22AM |
+| Econometric Software, Inc.     Copyright 1986-2012      |
+| Plainview, New York 11803                               |
+| Registered to                                           |
+|                                                         |
+| Registration Number                                     |
+O---------------------------------------------------------O
+-------Initializing NLOGIT Version 5 (May 1, 2012)---------
+-----------------------------------------------------------
+
+|-> RESET
+|-> LOAD;file="H:\Romania\Romania_Most updated\Data_Analysis\Modelling\Model_Outputs\WTA\Ovines_model.lpj"$
+out load
+Project file contained     972 observations.
+in load
+|-> *****************
+    *****************
+    CALC;RAN(12345)$
+Error:    1: Unrecognized command.  (Missing ; ?)
+|-> GMXLOGIT
+    ;lhs=choice
+    ;choices=alt1,alt2,alt3
+    ;gamma=[1]
+    ;tau=[0]
+    ;pds=4
+    ;fcn=bcost(*n),bcl(n),bss(n),bsos(n),bsq(u)
+    ;Draws=50
+    ;Halton
+    ;maxit=200
+    ;parameters
+    ;Model:
+    U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt3)=bsq*sq $
+Normal exit:   5 iterations. Status=0, F=    273.1932
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function      -273.19321
+Estimation based on N =    324, K =   5
+Inf.Cr.AIC  =    556.4 AIC/N =    1.717
+Model estimated: Sep 21, 2017, 11:55:05
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only   -347.1816  .2131 .2020
+Response data are given as ind. choices
+Number of obs.=   324, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   BCOST|     .05477***      .00677     8.09  .0000      .04151    .06803
+     BCL|    -.47738***      .08947    -5.34  .0000     -.65274   -.30203
+     BSS|    -.23923**       .11079    -2.16  .0308     -.45638   -.02209
+    BSOS|    -.29663***      .10514    -2.82  .0048     -.50269   -.09056
+     BSQ|     .98557***      .22452     4.39  .0000      .54551   1.42563
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+Normal exit:  41 iterations. Status=0, F=    241.1731
+
+-----------------------------------------------------------------------------
+Generalized Mixed (RP) Logit Model
+Dependent variable               CHOICE
+Log likelihood function      -241.17310
+Restricted log likelihood    -355.95038
+Chi squared [  10 d.f.]       229.55457
+Significance level               .00000
+McFadden Pseudo R-squared      .3224530
+Estimation based on N =    324, K =  10
+Inf.Cr.AIC  =    502.3 AIC/N =    1.550
+Model estimated: Sep 21, 2017, 11:55:24
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+No coefficients  -355.9504  .3225 .3118
+Constants only   -347.1816  .3053 .2945
+At start values  -355.9504  .3225 .3118
+Response data are given as ind. choices
+Replications for simulated probs. =  50
+Halton sequences used for simulations
+RPL model with panel has      81 groups
+Fixed number of obsrvs./group=        4
+BHHH estimator used for asymp. variance
+Number of obs.=   324, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Random parameters in utility functions
+   BCOST|        1.0    .....(Fixed Parameter).....
+     BCL|   -9.52433***     2.20415    -4.32  .0000   -13.84439  -5.20426
+     BSS|   -5.11377**      2.43686    -2.10  .0359    -9.88993   -.33760
+    BSOS|   -4.43933*       2.55759    -1.74  .0826    -9.45211    .57345
+     BSQ|    20.8197***     4.03053     5.17  .0000     12.9200   28.7194
+        |Distns. of RPs. Std.Devs or limits of triangular
+ CsBCOST|        0.0    .....(Fixed Parameter).....
+   NsBCL|    7.50674***     2.68598     2.79  .0052     2.24232  12.77116
+   NsBSS|     .33954        6.42578      .05  .9579   -12.25477  12.93384
+  NsBSOS|    16.9989***     2.75749     6.16  .0000     11.5943   22.4035
+   UsBSQ|    26.8726***     7.72016     3.48  .0005     11.7414   42.0038
+        |Variance parameter tau in GMX scale parameter
+TauScale|        0.0    .....(Fixed Parameter).....
+        |Weighting parameter gamma in GMX model
+GammaMXL|        0.0    .....(Fixed Parameter).....
+        |Coefficient on BCOST    in preference space form
+Beta0WTP|     .11650***      .02866     4.07  .0000      .06033    .17268
+S_b0_WTP|     .05584**       .02562     2.18  .0293      .00562    .10606
+        |  Sample Mean    Sample Std.Dev.
+Sigma(i)|    1.00000***   .5283D-06 ********  .0000     1.00000   1.00000
+--------+--------------------------------------------------------------------
+Note: nnnnn.D-xx or D+xx => multiply by 10 to -xx or +xx.
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+Fixed parameter ... is constrained to equal the value or
+had a nonpositive st.error because of an earlier problem.
+-----------------------------------------------------------------------------
+
+|-> *****************
+    *****************
+    CALC;RAN(12345)$
+Error:    1: Unrecognized command.  (Missing ; ?)
+|-> GMXLOGIT
+    ;lhs=choice
+    ;choices=alt1,alt2,alt3
+    ;gamma=[1]
+    ;tau=[0]
+    ;pds=4
+    ;fcn=bcost(*n),bcl(n),bss(n),bsos(n),bsq(u)
+    ;Draws=100
+    ;Halton
+    ;maxit=200
+    ;parameters
+    ;Model:
+    U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt3)=bsq*sq $
+Normal exit:   5 iterations. Status=0, F=    273.1932
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function      -273.19321
+Estimation based on N =    324, K =   5
+Inf.Cr.AIC  =    556.4 AIC/N =    1.717
+Model estimated: Sep 21, 2017, 11:59:54
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only   -347.1816  .2131 .2020
+Response data are given as ind. choices
+Number of obs.=   324, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   BCOST|     .05477***      .00677     8.09  .0000      .04151    .06803
+     BCL|    -.47738***      .08947    -5.34  .0000     -.65274   -.30203
+     BSS|    -.23923**       .11079    -2.16  .0308     -.45638   -.02209
+    BSOS|    -.29663***      .10514    -2.82  .0048     -.50269   -.09056
+     BSQ|     .98557***      .22452     4.39  .0000      .54551   1.42563
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+Line search at iteration    1 does not improve fn. Exiting optimization.
+With < 4 iterations, this may not be a good solution to the
+optimization. (The log-likelihood is flat.) Try refitting
+with ;Output=3 and examining the derivatives.
+
+-----------------------------------------------------------------------------
+Generalized Mixed (RP) Logit Model
+Dependent variable               CHOICE
+Log likelihood function      -781.66995
+Estimation based on N =    324, K =  10
+Inf.Cr.AIC  =   1583.3 AIC/N =    4.887
+Model estimated: Sep 21, 2017, 12:00:18
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+No coefficients  -355.9504 ************
+Constants only   -347.1816 ************
+At start values -1319.7590  .4077 .3984
+Response data are given as ind. choices
+Replications for simulated probs. = 100
+Halton sequences used for simulations
+RPL model with panel has      81 groups
+Fixed number of obsrvs./group=        4
+BHHH estimator used for asymp. variance
+Number of obs.=   324, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Random parameters in utility functions
+   BCOST|        1.0    .....(Fixed Parameter).....
+     BCL|     .96974***      .01151    84.22  .0000      .94717    .99231
+     BSS|   -8.69274***      .01707  -509.34  .0000    -8.72619  -8.65929
+    BSOS|   -4.35120***      .00586  -743.11  .0000    -4.36267  -4.33972
+     BSQ|   -5.41330***      .13295   -40.72  .0000    -5.67387  -5.15272
+        |Distns. of RPs. Std.Devs or limits of triangular
+ CsBCOST|        0.0    .....(Fixed Parameter).....
+   NsBCL|    17.9986***      .01843   976.33  .0000     17.9625   18.0347
+   NsBSS|     .00469         .02188      .21  .8304     -.03820    .04757
+  NsBSOS|     .00379         .02652      .14  .8863     -.04819    .05577
+   UsBSQ|     .00062         .20404      .00  .9976     -.39930    .40054
+        |Variance parameter tau in GMX scale parameter
+TauScale|        0.0    .....(Fixed Parameter).....
+        |Weighting parameter gamma in GMX model
+GammaMXL|        0.0    .....(Fixed Parameter).....
+        |Coefficient on BCOST    in preference space form
+Beta0WTP|     .14391***      .00213    67.60  .0000      .13974    .14809
+S_b0_WTP|    26.8723***      .03453   778.20  .0000     26.8046   26.9399
+        |  Sample Mean    Sample Std.Dev.
+Sigma(i)|    1.00000***   .6790D-06 ********  .0000     1.00000   1.00000
+--------+--------------------------------------------------------------------
+Note: nnnnn.D-xx or D+xx => multiply by 10 to -xx or +xx.
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+Fixed parameter ... is constrained to equal the value or
+had a nonpositive st.error because of an earlier problem.
+-----------------------------------------------------------------------------
+
+|-> *****************
+    *****************
+    CALC;RAN(12345)$
+Error:    1: Unrecognized command.  (Missing ; ?)
+|-> GMXLOGIT
+    ;lhs=choice
+    ;choices=alt1,alt2,alt3
+    ;gamma=[1]
+    ;tau=[0]
+    ;pds=4
+    ;fcn=bcost(*n),bcl(n),bss(n),bsos(n),bsq(u)
+    ;Draws=500
+    ;Halton
+    ;maxit=200
+    ;parameters
+    ;Model:
+    U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt3)=bsq*sq $
+Normal exit:   5 iterations. Status=0, F=    273.1932
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function      -273.19321
+Estimation based on N =    324, K =   5
+Inf.Cr.AIC  =    556.4 AIC/N =    1.717
+Model estimated: Sep 21, 2017, 12:02:27
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only   -347.1816  .2131 .2020
+Response data are given as ind. choices
+Number of obs.=   324, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   BCOST|     .05477***      .00677     8.09  .0000      .04151    .06803
+     BCL|    -.47738***      .08947    -5.34  .0000     -.65274   -.30203
+     BSS|    -.23923**       .11079    -2.16  .0308     -.45638   -.02209
+    BSOS|    -.29663***      .10514    -2.82  .0048     -.50269   -.09056
+     BSQ|     .98557***      .22452     4.39  .0000      .54551   1.42563
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+Normal exit:  45 iterations. Status=0, F=    242.8527
+
+-----------------------------------------------------------------------------
+Generalized Mixed (RP) Logit Model
+Dependent variable               CHOICE
+Log likelihood function      -242.85273
+Restricted log likelihood    -355.95038
+Chi squared [  10 d.f.]       226.19530
+Significance level               .00000
+McFadden Pseudo R-squared      .3177343
+Estimation based on N =    324, K =  10
+Inf.Cr.AIC  =    505.7 AIC/N =    1.561
+Model estimated: Sep 21, 2017, 12:05:46
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+No coefficients  -355.9504  .3177 .3070
+Constants only   -347.1816  .3005 .2895
+At start values  -355.9129  .3177 .3070
+Response data are given as ind. choices
+Replications for simulated probs. = 500
+Halton sequences used for simulations
+RPL model with panel has      81 groups
+Fixed number of obsrvs./group=        4
+BHHH estimator used for asymp. variance
+Number of obs.=   324, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Random parameters in utility functions
+   BCOST|        1.0    .....(Fixed Parameter).....
+     BCL|   -10.4324***     2.25719    -4.62  .0000    -14.8564   -6.0083
+     BSS|   -6.06989**      2.65884    -2.28  .0224   -11.28113   -.85866
+    BSOS|   -4.80875*       2.90031    -1.66  .0973   -10.49325    .87575
+     BSQ|    21.2428***     4.11875     5.16  .0000     13.1702   29.3154
+        |Distns. of RPs. Std.Devs or limits of triangular
+ CsBCOST|        0.0    .....(Fixed Parameter).....
+   NsBCL|    6.70646**      3.20105     2.10  .0362      .43252  12.98040
+   NsBSS|    1.89525       13.08303      .14  .8848   -23.74700  27.53751
+  NsBSOS|    17.2514***     3.08523     5.59  .0000     11.2044   23.2983
+   UsBSQ|    26.8631***     8.25481     3.25  .0011     10.6840   43.0423
+        |Variance parameter tau in GMX scale parameter
+TauScale|        0.0    .....(Fixed Parameter).....
+        |Weighting parameter gamma in GMX model
+GammaMXL|        0.0    .....(Fixed Parameter).....
+        |Coefficient on BCOST    in preference space form
+Beta0WTP|     .11947***      .02992     3.99  .0001      .06084    .17810
+S_b0_WTP|     .05544**       .02445     2.27  .0234      .00752    .10336
+        |  Sample Mean    Sample Std.Dev.
+Sigma(i)|        1.0***   .1703D-05 ********  .0000  .10000D+01  .10000D+01
+--------+--------------------------------------------------------------------
+Note: nnnnn.D-xx or D+xx => multiply by 10 to -xx or +xx.
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+Fixed parameter ... is constrained to equal the value or
+had a nonpositive st.error because of an earlier problem.
+-----------------------------------------------------------------------------
+
+|-> *****************
+    *****************
+    CALC;RAN(12345)$
+Error:    1: Unrecognized command.  (Missing ; ?)
+|-> GMXLOGIT
+    ;lhs=choice
+    ;choices=alt1,alt2,alt3
+    ;gamma=[1]
+    ;tau=[0]
+    ;pds=4
+    ;fcn=bcost(*n),bcl(n),bss(n),bsos(n),bsq(u)
+    ;Draws=700
+    ;Halton
+    ;maxit=200
+    ;parameters
+    ;Model:
+    U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt3)=bsq*sq $
+Normal exit:   5 iterations. Status=0, F=    273.1932
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function      -273.19321
+Estimation based on N =    324, K =   5
+Inf.Cr.AIC  =    556.4 AIC/N =    1.717
+Model estimated: Sep 21, 2017, 12:09:37
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only   -347.1816  .2131 .2020
+Response data are given as ind. choices
+Number of obs.=   324, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   BCOST|     .05477***      .00677     8.09  .0000      .04151    .06803
+     BCL|    -.47738***      .08947    -5.34  .0000     -.65274   -.30203
+     BSS|    -.23923**       .11079    -2.16  .0308     -.45638   -.02209
+    BSOS|    -.29663***      .10514    -2.82  .0048     -.50269   -.09056
+     BSQ|     .98557***      .22452     4.39  .0000      .54551   1.42563
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+Line search at iteration    1 does not improve fn. Exiting optimization.
+With < 4 iterations, this may not be a good solution to the
+optimization. (The log-likelihood is flat.) Try refitting
+with ;Output=3 and examining the derivatives.
+
+-----------------------------------------------------------------------------
+Generalized Mixed (RP) Logit Model
+Dependent variable               CHOICE
+Log likelihood function      -504.80410
+Estimation based on N =    324, K =  10
+Inf.Cr.AIC  =   1029.6 AIC/N =    3.178
+Model estimated: Sep 21, 2017, 12:13:08
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+No coefficients  -355.9504 -.4182-.4404
+Constants only   -347.1816 -.4540-.4768
+At start values  -664.5726  .2404 .2285
+Response data are given as ind. choices
+Replications for simulated probs. = 700
+Halton sequences used for simulations
+RPL model with panel has      81 groups
+Fixed number of obsrvs./group=        4
+BHHH estimator used for asymp. variance
+Number of obs.=   324, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Random parameters in utility functions
+   BCOST|        1.0    .....(Fixed Parameter).....
+     BCL|    -.27429***      .01116   -24.58  .0000     -.29616   -.25242
+     BSS|   -6.94731***      .01217  -570.97  .0000    -6.97116  -6.92346
+    BSOS|   -2.95601***      .00492  -600.29  .0000    -2.96566  -2.94636
+     BSQ|   -4.90090***      .04463  -109.81  .0000    -4.98837  -4.81342
+        |Distns. of RPs. Std.Devs or limits of triangular
+ CsBCOST|        0.0    .....(Fixed Parameter).....
+   NsBCL|    19.1026***      .01578  1210.58  .0000     19.0717   19.1335
+   NsBSS|     .03418         .03785      .90  .3665     -.04001    .10837
+  NsBSOS|     .29140***      .02319    12.57  .0000      .24595    .33685
+   UsBSQ|     .04940         .15056      .33  .7428     -.24569    .34450
+        |Variance parameter tau in GMX scale parameter
+TauScale|        0.0    .....(Fixed Parameter).....
+        |Weighting parameter gamma in GMX model
+GammaMXL|        0.0    .....(Fixed Parameter).....
+        |Coefficient on BCOST    in preference space form
+Beta0WTP|    1.03563***      .00756   136.94  .0000     1.02081   1.05045
+S_b0_WTP|    26.5969***      .02195  1211.52  .0000     26.5539   26.6399
+        |  Sample Mean    Sample Std.Dev.
+Sigma(i)|    1.00000***   .1737D-05 ********  .0000     1.00000   1.00000
+--------+--------------------------------------------------------------------
+Note: nnnnn.D-xx or D+xx => multiply by 10 to -xx or +xx.
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+Fixed parameter ... is constrained to equal the value or
+had a nonpositive st.error because of an earlier problem.
+-----------------------------------------------------------------------------
+
+|-> *****************
+    *****************
+    CALC;RAN(12345)$
+Error:    1: Unrecognized command.  (Missing ; ?)
+|-> GMXLOGIT
+    ;lhs=choice
+    ;choices=alt1,alt2,alt3
+    ;gamma=[1]
+    ;tau=[0]
+    ;pds=4
+    ;fcn=bcost(*n),bcl(n),bss(n),bsos(n),bsq(u)
+    ;Draws=1000
+    ;Halton
+    ;maxit=200
+    ;parameters
+    ;Model:
+    U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt3)=bsq*sq $
+Normal exit:   5 iterations. Status=0, F=    273.1932
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function      -273.19321
+Estimation based on N =    324, K =   5
+Inf.Cr.AIC  =    556.4 AIC/N =    1.717
+Model estimated: Sep 21, 2017, 12:14:36
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only   -347.1816  .2131 .2020
+Response data are given as ind. choices
+Number of obs.=   324, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   BCOST|     .05477***      .00677     8.09  .0000      .04151    .06803
+     BCL|    -.47738***      .08947    -5.34  .0000     -.65274   -.30203
+     BSS|    -.23923**       .11079    -2.16  .0308     -.45638   -.02209
+    BSOS|    -.29663***      .10514    -2.82  .0048     -.50269   -.09056
+     BSQ|     .98557***      .22452     4.39  .0000      .54551   1.42563
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+Normal exit:  44 iterations. Status=0, F=    243.2267
+
+-----------------------------------------------------------------------------
+Generalized Mixed (RP) Logit Model
+Dependent variable               CHOICE
+Log likelihood function      -243.22669
+Restricted log likelihood    -355.95038
+Chi squared [  10 d.f.]       225.44738
+Significance level               .00000
+McFadden Pseudo R-squared      .3166837
+Estimation based on N =    324, K =  10
+Inf.Cr.AIC  =    506.5 AIC/N =    1.563
+Model estimated: Sep 21, 2017, 12:21:51
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+No coefficients  -355.9504  .3167 .3060
+Constants only   -347.1816  .2994 .2884
+At start values  -331.7532  .2668 .2554
+Response data are given as ind. choices
+Replications for simulated probs. =1000
+Halton sequences used for simulations
+RPL model with panel has      81 groups
+Fixed number of obsrvs./group=        4
+BHHH estimator used for asymp. variance
+Number of obs.=   324, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Random parameters in utility functions
+   BCOST|        1.0    .....(Fixed Parameter).....
+     BCL|   -10.3499***     2.22036    -4.66  .0000    -14.7017   -5.9981
+     BSS|   -5.94382**      2.52608    -2.35  .0186   -10.89484   -.99281
+    BSOS|   -5.20268*       2.83396    -1.84  .0664   -10.75714    .35178
+     BSQ|    21.7783***     3.87387     5.62  .0000     14.1857   29.3710
+        |Distns. of RPs. Std.Devs or limits of triangular
+ CsBCOST|        0.0    .....(Fixed Parameter).....
+   NsBCL|    6.96243**      2.86671     2.43  .0152     1.34378  12.58108
+   NsBSS|     .13818       30.23638      .00  .9964   -59.12403  59.40039
+  NsBSOS|    16.8024***     2.87869     5.84  .0000     11.1602   22.4445
+   UsBSQ|    26.1750***     7.93101     3.30  .0010     10.6305   41.7195
+        |Variance parameter tau in GMX scale parameter
+TauScale|        0.0    .....(Fixed Parameter).....
+        |Weighting parameter gamma in GMX model
+GammaMXL|        0.0    .....(Fixed Parameter).....
+        |Coefficient on BCOST    in preference space form
+Beta0WTP|     .11737***      .02728     4.30  .0000      .06390    .17083
+S_b0_WTP|     .04914**       .02463     2.00  .0460      .00087    .09741
+        |  Sample Mean    Sample Std.Dev.
+Sigma(i)|        1.0***   .2174D-05 ********  .0000  .10000D+01  .10000D+01
+--------+--------------------------------------------------------------------
+Note: nnnnn.D-xx or D+xx => multiply by 10 to -xx or +xx.
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+Fixed parameter ... is constrained to equal the value or
+had a nonpositive st.error because of an earlier problem.
+-----------------------------------------------------------------------------
+

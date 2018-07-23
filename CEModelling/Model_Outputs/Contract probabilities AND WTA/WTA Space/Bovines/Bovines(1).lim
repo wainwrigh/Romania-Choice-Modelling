@@ -1,0 +1,311 @@
+|-> RESET
+O---------------------------------------------------------O
+| NLOGIT 5  (tm)                 Sep 21, 2017, 02:55:19PM |
+| Econometric Software, Inc.     Copyright 1986-2012      |
+| Plainview, New York 11803                               |
+| Registered to                                           |
+|                                                         |
+| Registration Number                                     |
+O---------------------------------------------------------O
+-------Initializing NLOGIT Version 5 (May 1, 2012)---------
+-----------------------------------------------------------
+
+|-> IMPORT;FILE="H:\Romania\Romania_Most updated\Data_Analysis\Modelling\Spreadsheet_Data\Final\Bovine_analysis3.csv"$
+Last observation read from data file was    1392
+|-> *****************
+    *****************
+    CALC;RAN(12345)$
+Error:    1: Unrecognized command.  (Missing ; ?)
+|-> GMXLOGIT
+    ;lhs=choice
+    ;choices=alt1,alt2,alt3
+    ;gamma=[1]
+    ;tau=[0]
+    ;pds=4
+    ;fcn=bcost(*n),bcl(n),bss(n),bsos(n),bsq(u)
+    ;Draws=100
+    ;Halton
+    ;maxit=200
+    ;parameters
+    ;Model:
+    U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt3)=bsq*sq $
+Normal exit:   5 iterations. Status=0, F=    405.2273
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function      -405.22733
+Estimation based on N =    464, K =   5
+Inf.Cr.AIC  =    820.5 AIC/N =    1.768
+Model estimated: Sep 21, 2017, 14:56:19
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only   -501.9318  .1927 .1848
+Response data are given as ind. choices
+Number of obs.=   464, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   BCOST|     .00296***      .00027    11.17  .0000      .00244    .00348
+     BCL|    -.27845***      .06715    -4.15  .0000     -.41007   -.14683
+     BSS|     .05956         .07859      .76  .4486     -.09448    .21360
+    BSOS|    -.42579***      .07900    -5.39  .0000     -.58063   -.27096
+     BSQ|    1.09543***      .17694     6.19  .0000      .74863   1.44224
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+Normal exit:  69 iterations. Status=0, F=    352.0847
+
+-----------------------------------------------------------------------------
+Generalized Mixed (RP) Logit Model
+Dependent variable               CHOICE
+Log likelihood function      -352.08470
+Restricted log likelihood    -509.75610
+Chi squared [  10 d.f.]       315.34280
+Significance level               .00000
+McFadden Pseudo R-squared      .3093075
+Estimation based on N =    464, K =  10
+Inf.Cr.AIC  =    724.2 AIC/N =    1.561
+Model estimated: Sep 21, 2017, 14:58:00
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+No coefficients  -509.7561  .3093 .3018
+Constants only   -501.9318  .2985 .2909
+At start values  -509.7561  .3093 .3018
+Response data are given as ind. choices
+Replications for simulated probs. = 100
+Halton sequences used for simulations
+RPL model with panel has     116 groups
+Fixed number of obsrvs./group=        4
+BHHH estimator used for asymp. variance
+Number of obs.=   464, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Random parameters in utility functions
+   BCOST|        1.0    .....(Fixed Parameter).....
+     BCL|   -130.005***    25.11901    -5.18  .0000    -179.237   -80.773
+     BSS|   -32.7007       36.07406     -.91  .3647   -103.4046   38.0031
+    BSOS|   -84.5279**     35.63139    -2.37  .0177   -154.3641  -14.6916
+     BSQ|    466.570***    54.46869     8.57  .0000     359.813   573.327
+        |Distns. of RPs. Std.Devs or limits of triangular
+ CsBCOST|        0.0    .....(Fixed Parameter).....
+   NsBCL|    111.881***    37.79993     2.96  .0031      37.794   185.967
+   NsBSS|    215.220***    31.95337     6.74  .0000     152.592   277.847
+  NsBSOS|    318.523***    45.15516     7.05  .0000     230.021   407.026
+   UsBSQ|    528.787***    99.97737     5.29  .0000     332.835   724.739
+        |Variance parameter tau in GMX scale parameter
+TauScale|        0.0    .....(Fixed Parameter).....
+        |Weighting parameter gamma in GMX model
+GammaMXL|        0.0    .....(Fixed Parameter).....
+        |Coefficient on BCOST    in preference space form
+Beta0WTP|     .00802***      .00187     4.30  .0000      .00436    .01168
+S_b0_WTP|     .00366**       .00157     2.33  .0198      .00058    .00674
+        |  Sample Mean    Sample Std.Dev.
+Sigma(i)|        1.0***   .1010D-05 ********  .0000  .10000D+01  .10000D+01
+--------+--------------------------------------------------------------------
+Note: nnnnn.D-xx or D+xx => multiply by 10 to -xx or +xx.
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+Fixed parameter ... is constrained to equal the value or
+had a nonpositive st.error because of an earlier problem.
+-----------------------------------------------------------------------------
+
+|-> *****************
+    *****************
+    CALC;RAN(12345)$
+Error:    1: Unrecognized command.  (Missing ; ?)
+|-> GMXLOGIT
+    ;lhs=choice
+    ;choices=alt1,alt2,alt3
+    ;gamma=[1]
+    ;tau=[0]
+    ;pds=4
+    ;fcn=bcost(*n),bcl(n),bss(n),bsos(n),bsq(u)
+    ;Draws=500
+    ;Halton
+    ;maxit=200
+    ;parameters
+    ;Model:
+    U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt3)=bsq*sq $
+Normal exit:   5 iterations. Status=0, F=    405.2273
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function      -405.22733
+Estimation based on N =    464, K =   5
+Inf.Cr.AIC  =    820.5 AIC/N =    1.768
+Model estimated: Sep 21, 2017, 15:00:01
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only   -501.9318  .1927 .1848
+Response data are given as ind. choices
+Number of obs.=   464, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   BCOST|     .00296***      .00027    11.17  .0000      .00244    .00348
+     BCL|    -.27845***      .06715    -4.15  .0000     -.41007   -.14683
+     BSS|     .05956         .07859      .76  .4486     -.09448    .21360
+    BSOS|    -.42579***      .07900    -5.39  .0000     -.58063   -.27096
+     BSQ|    1.09543***      .17694     6.19  .0000      .74863   1.44224
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+Initial iterations cannot improve function.Status=3
+Error:  805: Initial iterations cannot improve function.Status=3
+Function=  .28499523268D+04, at entry,  .28499523289D+04 at exit
+Error: 1025: Failed to fit model. See earlier diagnostic.
+|-> *****************
+    *****************
+    CALC;RAN(12345)$
+Error:    1: Unrecognized command.  (Missing ; ?)
+|-> GMXLOGIT
+    ;lhs=choice
+    ;choices=alt1,alt2,alt3
+    ;gamma=[1]
+    ;tau=[0]
+    ;pds=4
+    ;fcn=bcost(*n),bcl(n),bss(n),bsos(n),bsq(u)
+    ;Draws=1000
+    ;Halton
+    ;maxit=200
+    ;parameters
+    ;Model:
+    U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt3)=bsq*sq $
+Normal exit:   5 iterations. Status=0, F=    405.2273
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function      -405.22733
+Estimation based on N =    464, K =   5
+Inf.Cr.AIC  =    820.5 AIC/N =    1.768
+Model estimated: Sep 21, 2017, 15:01:05
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only   -501.9318  .1927 .1848
+Response data are given as ind. choices
+Number of obs.=   464, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   BCOST|     .00296***      .00027    11.17  .0000      .00244    .00348
+     BCL|    -.27845***      .06715    -4.15  .0000     -.41007   -.14683
+     BSS|     .05956         .07859      .76  .4486     -.09448    .21360
+    BSOS|    -.42579***      .07900    -5.39  .0000     -.58063   -.27096
+     BSQ|    1.09543***      .17694     6.19  .0000      .74863   1.44224
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+Initial iterations cannot improve function.Status=3
+Error:  805: Initial iterations cannot improve function.Status=3
+Function=  .28476396408D+04, at entry,  .28476512179D+04 at exit
+Error: 1025: Failed to fit model. See earlier diagnostic.
+|-> *****************
+    *****************
+    CALC;RAN(12345)$
+Error:    1: Unrecognized command.  (Missing ; ?)
+|-> GMXLOGIT
+    ;lhs=choice
+    ;choices=alt1,alt2,alt3
+    ;gamma=[1]
+    ;tau=[0]
+    ;pds=4
+    ;fcn=bcost(*n),bcl(n),bss(n),bsos(n),bsq(u)
+    ;Draws=2000
+    ;Halton
+    ;maxit=200
+    ;parameters
+    ;Model:
+    U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt3)=bsq*sq $
+Normal exit:   5 iterations. Status=0, F=    405.2273
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function      -405.22733
+Estimation based on N =    464, K =   5
+Inf.Cr.AIC  =    820.5 AIC/N =    1.768
+Model estimated: Sep 21, 2017, 15:08:03
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only   -501.9318  .1927 .1848
+Response data are given as ind. choices
+Number of obs.=   464, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   BCOST|     .00296***      .00027    11.17  .0000      .00244    .00348
+     BCL|    -.27845***      .06715    -4.15  .0000     -.41007   -.14683
+     BSS|     .05956         .07859      .76  .4486     -.09448    .21360
+    BSOS|    -.42579***      .07900    -5.39  .0000     -.58063   -.27096
+     BSQ|    1.09543***      .17694     6.19  .0000      .74863   1.44224
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+Initial iterations cannot improve function.Status=3
+Error:  805: Initial iterations cannot improve function.Status=3
+Function=  .27830405342D+04, at entry,  .27830367531D+04 at exit
+Error: 1025: Failed to fit model. See earlier diagnostic.
+|-> *****************
+    *****************
+    CALC;RAN(12345)$
+Error:    1: Unrecognized command.  (Missing ; ?)
+|-> GMXLOGIT
+    ;lhs=choice
+    ;choices=alt1,alt2,alt3
+    ;gamma=[1]
+    ;tau=[0]
+    ;pds=4
+    ;fcn=bcost(*n),bcl(n),bss(n),bsos(n),bsq(u)
+    ;Draws=50
+    ;Halton
+    ;maxit=200
+    ;parameters
+    ;Model:
+    U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt3)=bsq*sq $
+Normal exit:   5 iterations. Status=0, F=    405.2273
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function      -405.22733
+Estimation based on N =    464, K =   5
+Inf.Cr.AIC  =    820.5 AIC/N =    1.768
+Model estimated: Sep 21, 2017, 15:24:55
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only   -501.9318  .1927 .1848
+Response data are given as ind. choices
+Number of obs.=   464, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   BCOST|     .00296***      .00027    11.17  .0000      .00244    .00348
+     BCL|    -.27845***      .06715    -4.15  .0000     -.41007   -.14683
+     BSS|     .05956         .07859      .76  .4486     -.09448    .21360
+    BSOS|    -.42579***      .07900    -5.39  .0000     -.58063   -.27096
+     BSQ|    1.09543***      .17694     6.19  .0000      .74863   1.44224
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+Initial iterations cannot improve function.Status=3
+Error:  805: Initial iterations cannot improve function.Status=3
+Function=  .41221066301D+04, at entry,  .41691597494D+04 at exit
+Error: 1025: Failed to fit model. See earlier diagnostic.

@@ -1,0 +1,170 @@
+*****************************
+# RPL for Ovine
+*****************************
+CALC;Ran(12345)$
+NLOGIT
+;lhs=choice
+;choices=alt1,alt2,alt3
+;rpl
+;fcn=bcl(n),bss(n),bsos(n),bcost(t),bsq(n)
+;Halton
+;pds=4
+;pts=1000
+?;correlation
+;Parameters
+;Model:
+U(alt1)=bsq*sq+bcl*cl+bss*ss+bsos*sos+bcost*cost/
+U(alt2)=bsq*sq+bcl*cl+bss*ss+bsos*sos+bcost*cost/
+U(alt3)=bsq*sq+bcl*cl+bss*ss+bsos*sos+bcost*cost$
+
+*****************************
+# RPL for Bovine
+*****************************
+CALC;Ran(12345)$
+NLOGIT
+;lhs=choice
+;choices=alt1,alt2,alt3
+;rpl
+;fcn=bcl(n),bss(n),bsos(n),bcost(t),bsq(n)
+;Halton
+;pds=4
+;pts=1000
+?;correlation
+;Parameters
+;Model:
+U(alt1)=bsq*sq+bcl*cl+bss*ss+bsos*sos+bcost*cost/
+U(alt2)=bsq*sq+bcl*cl+bss*ss+bsos*sos+bcost*cost/
+U(alt3)=bsq*sq+bcl*cl+bss*ss+bsos*sos+bcost*cost$
+
+*****************
+# WTA Space - Ovines
+*****************
+CALC;RAN(12345)$
+GMXLOGIT
+;lhs=choice
+;choices=alt1,alt2,alt3
+;gamma=[1]
+;tau=[0]
+;pds=4
+;fcn=bcost(*n),bcl(n),bss(n),bsos(n),bsq(u)
+;Draws=10
+;Halton
+;maxit=200
+?;correlation
+;parameters
+;Model:
+U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+U(alt3)=bsq*sq $
+
+*****************
+# WTA Space - Ovines (inc. covariates)
+*****************
+    
+CALC;RAN(12345)$
+GMXLOGIT
+    ;lhs=choice
+    ;choices=alt1,alt2,alt3
+    ;gamma=[1]
+    ;tau=[0]
+    ;pds=4
+    ;fcn=bcost(*n|#01000000),bcl(n|#00000000),bss(n|#00000000),bsos(n|#01000000),bsq(u)
+    ;GMX=amed,benefit1,benefit3,age1,age3,edu1,edu3,tin1
+    ;Draws=10
+    ;Halton
+    ;maxit=200
+    ;parameters
+    ;Model:
+    U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt3)=bsq*sq $
+
+*****************
+# WTA Space - Bovines
+*****************
+CALC;RAN(12345)$
+GMXLOGIT
+;lhs=choice
+;choices=alt1,alt2,alt3
+;gamma=[1]
+;tau=[0]
+;pds=4
+;fcn=bcost(*n),bcl(n),bss(n),bsos(n),bsq(n)
+;Draws=100
+;Halton
+;maxit=200
+?;correlation
+;parameters
+;Model:
+U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+U(alt3)=bsq*sq $
+
+*****************
+# WTA Space - Bovines (inc. covariates)
+*****************
+    
+CALC;RAN(12345)$
+GMXLOGIT >
+    ;checkdata
+    ;lhs=choice
+    ;choices=alt1,alt2,alt3
+    ;gamma=[1]
+    ;tau=[0]
+    ;pds=4
+    ;fcn=bcost(*n|#00100000),bcl(n|#00000000),bss(n|#10000000),bsos(n|#00000000),bsq(n|00000000)
+    ;GMX=amed,benefit1,benefit3,age1,age3,edu1,edu3,tin1
+    ;Draws=10
+    ;Halton
+    ;maxit=200
+    ;correlation
+    ;parameters
+    ;Model:
+    U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt3)=bsq*sq $
+
+*****************************
+# RPL for Sheep (inc. covariates)
+*****************************
+CALC;Ran(12345)$
+NLOGIT
+    ;lhs=choice
+    ;choices=alt1,alt2,alt3
+    ;rpl=amed,benefit1,edu1,tin1,frb
+    ;fcn=bcl(n|#00000),bss(n|#10010),bsos(n|#01000),bcost(t|#11000),bsq(n|#00000)
+    ;Halton
+    ;pds=4
+    ;pts=1000
+    ;wtp=bcl/bcost,bss/bcost,bsos/bcost,bsq/bcost
+    ;parameters
+    ;Model:
+    U(alt1)=bsq*sq+bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt2)=bsq*sq+bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt3)=bsq*sq+bcl*cl+bss*ss+bsos*sos+bcost*cost$
+ MATRIX ;list;1/81*1'wtp_i$
+
+*****************************
+# RPL for Bovine (inc. covariates)
+*****************************
+CALC;Ran(12345)$
+NLOGIT
+    ;lhs=choice
+    ;choices=alt1,alt2,alt3
+    ;rpl=amed,benefit1,benefit3,age1,age3,edu1,edu3,tin1
+    ;fcn=bcl(n|#00000000),bss(n|#10000000),bsos(n|#00000000),bcost(t|#00100000),bsq(n|#10000000)
+    ;Halton
+    ;pds=4
+    ;pts=1000
+    ;wtp=bcl/bcost,bss/bcost,bsos/bcost,bsq/bcost
+    ;parameters
+    ;Model:
+    U(alt1)=bsq*sq+bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt2)=bsq*sq+bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt3)=bsq*sq+bcl*cl+bss*ss+bsos*sos+bcost*cost$
+ MATRIX ;list;1/116*1'wtp_i$
+
+
+
+
+

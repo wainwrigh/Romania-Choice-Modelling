@@ -1,0 +1,422 @@
+|-> RESET
+O---------------------------------------------------------O
+| NLOGIT 5  (tm)                 Oct 03, 2017, 09:43:15AM |
+| Econometric Software, Inc.     Copyright 1986-2012      |
+| Plainview, New York 11803                               |
+| Registered to                                           |
+|                                                         |
+| Registration Number                                     |
+O---------------------------------------------------------O
+-------Initializing NLOGIT Version 5 (May 1, 2012)---------
+-----------------------------------------------------------
+
+|-> IMPORT;FILE="H:\Romania CE\Romania_Most updated\Data_Analysis\Modelling\Spreadsheet_Data\Final\Sheep_analysis.csv"$
+Last observation read from data file was     972
+|-> *****************************
+    # RPL for Sheep (inc. covariates)
+    *****************************
+    CALC;Ran(12345)$
+Error:    1: Unrecognized command.  (Missing ; ?)
+|-> NLOGIT
+    ;lhs=choice
+    ;choices=alt1,alt2,alt3
+    ;rpl=amed,benefit1,benefit3,age1,age2,edu1,edu3,tin1
+    ;fcn=bcl(n|#00000000),bss(n|#10000001),bsos(n|#01000000),bcost(n|#11000000)
+    ;Halton
+    ;pds=4
+    ;pts=100
+    ;Model:
+    U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt3)=bsq*sq+bcl*cl+bss*ss+bsos*sos+bcost*cost$
+Normal exit:   5 iterations. Status=0, F=    273.1932
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function      -273.19321
+Estimation based on N =    324, K =   5
+Inf.Cr.AIC  =    556.4 AIC/N =    1.717
+Model estimated: Oct 03, 2017, 09:48:33
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only   -347.1816  .2131 .1957
+Response data are given as ind. choices
+Number of obs.=   324, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+     BCL|    -.47738***      .08947    -5.34  .0000     -.65274   -.30203
+     BSS|    -.23923**       .11079    -2.16  .0308     -.45638   -.02209
+    BSOS|    -.29663***      .10514    -2.82  .0048     -.50269   -.09056
+   BCOST|     .05477***      .00677     8.09  .0000      .04151    .06803
+     BSQ|     .98557***      .22452     4.39  .0000      .54551   1.42563
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+Normal exit:  29 iterations. Status=0, F=    226.0398
+
+-----------------------------------------------------------------------------
+Random Parameters Logit Model
+Dependent variable               CHOICE
+Log likelihood function      -226.03984
+Restricted log likelihood    -355.95038
+Chi squared [  14 d.f.]       259.82108
+Significance level               .00000
+McFadden Pseudo R-squared      .3649681
+Estimation based on N =    324, K =  14
+Inf.Cr.AIC  =    480.1 AIC/N =    1.482
+Model estimated: Oct 03, 2017, 09:48:58
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+No coefficients  -355.9504  .3650 .3509
+Constants only   -347.1816  .3489 .3346
+At start values  -273.1932  .1726 .1543
+Response data are given as ind. choices
+Replications for simulated probs. = 100
+Halton sequences used for simulations
+RPL model with panel has      81 groups
+Fixed number of obsrvs./group=        4
+Number of obs.=   324, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Random parameters in utility functions
+     BCL|   -1.03561***      .22100    -4.69  .0000    -1.46877   -.60245
+     BSS|    -.01846         .25409     -.07  .9421     -.51646    .47954
+    BSOS|    1.52974***      .46964     3.26  .0011      .60926   2.45021
+   BCOST|     .14119***      .02600     5.43  .0000      .09023    .19214
+        |Nonrandom parameters in utility functions
+     BSQ|    2.27634***      .47427     4.80  .0000     1.34679   3.20588
+        |Heterogeneity in mean, Parameter:Variable
+ BCL:AME|        0.0    .....(Fixed Parameter).....
+ BCL:BEN|        0.0    .....(Fixed Parameter).....
+BCL0:BEN|        0.0    .....(Fixed Parameter).....
+ BCL:AGE|        0.0    .....(Fixed Parameter).....
+BCL0:AGE|        0.0    .....(Fixed Parameter).....
+ BCL:EDU|        0.0    .....(Fixed Parameter).....
+BCL0:EDU|        0.0    .....(Fixed Parameter).....
+ BCL:TIN|        0.0    .....(Fixed Parameter).....
+ BSS:AME|    -.73248**       .33864    -2.16  .0305    -1.39620   -.06875
+ BSS:BEN|        0.0    .....(Fixed Parameter).....
+BSS0:BEN|        0.0    .....(Fixed Parameter).....
+ BSS:AGE|        0.0    .....(Fixed Parameter).....
+BSS0:AGE|        0.0    .....(Fixed Parameter).....
+ BSS:EDU|        0.0    .....(Fixed Parameter).....
+BSS0:EDU|        0.0    .....(Fixed Parameter).....
+ BSS:TIN|    -.65395**       .33363    -1.96  .0500    -1.30786   -.00004
+BSOS:AME|        0.0    .....(Fixed Parameter).....
+BSOS:BEN|   -2.57956***      .58394    -4.42  .0000    -3.72407  -1.43505
+BSO0:BEN|        0.0    .....(Fixed Parameter).....
+BSOS:AGE|        0.0    .....(Fixed Parameter).....
+BSO0:AGE|        0.0    .....(Fixed Parameter).....
+BSOS:EDU|        0.0    .....(Fixed Parameter).....
+BSO0:EDU|        0.0    .....(Fixed Parameter).....
+BSOS:TIN|        0.0    .....(Fixed Parameter).....
+BCOS:AME|    -.03155**       .01322    -2.39  .0171     -.05746   -.00563
+BCOS:BEN|    -.04552***      .01756    -2.59  .0095     -.07993   -.01110
+BCO0:BEN|        0.0    .....(Fixed Parameter).....
+BCOS:AGE|        0.0    .....(Fixed Parameter).....
+BCO0:AGE|        0.0    .....(Fixed Parameter).....
+BCOS:EDU|        0.0    .....(Fixed Parameter).....
+BCO0:EDU|        0.0    .....(Fixed Parameter).....
+BCOS:TIN|        0.0    .....(Fixed Parameter).....
+        |Distns. of RPs. Std.Devs or limits of triangular
+   NsBCL|     .76590***      .27593     2.78  .0055      .22509   1.30671
+   NsBSS|     .32991         .40073      .82  .4104     -.45551   1.11532
+  NsBSOS|    1.20466***      .28466     4.23  .0000      .64673   1.76259
+ NsBCOST|     .02350*        .01204     1.95  .0510     -.00010    .04710
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+Fixed parameter ... is constrained to equal the value or
+had a nonpositive st.error because of an earlier problem.
+-----------------------------------------------------------------------------
+
+Parameter Matrix for Heterogeneity in Means.
+|-> *****************
+    # WTP Space - Ovines
+    *****************
+    CALC;RAN(12345)$
+Error:    1: Unrecognized command.  (Missing ; ?)
+|-> GMXLOGIT
+    ;lhs=choice
+    ;choices=alt1,alt2,alt3
+    ;gamma=[1]
+    ;tau=[0]
+    ;pds=4
+    ;fcn=bcost(*l|#10100000),bcl(l|#00000000),bss(l|#10000000),bsos(l|#00000000),bsq(u)
+    ;GMX=amed,benefit1,benefit3,age1,age3,edu1,edu3,tin1
+    ;Draws=100
+    ;Halton
+    ;maxit=200
+    ;parameters
+    ;Model:
+    U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt3)=bsq*sq $
+Normal exit:   5 iterations. Status=0, F=    273.1932
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function      -273.19321
+Estimation based on N =    324, K =   5
+Inf.Cr.AIC  =    556.4 AIC/N =    1.717
+Model estimated: Oct 03, 2017, 09:50:13
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only   -347.1816  .2131 .1881
+Response data are given as ind. choices
+Number of obs.=   324, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   BCOST|     .05477***      .00677     8.09  .0000      .04151    .06803
+     BCL|    -.47738***      .08947    -5.34  .0000     -.65274   -.30203
+     BSS|    -.23923**       .11079    -2.16  .0308     -.45638   -.02209
+    BSOS|    -.29663***      .10514    -2.82  .0048     -.50269   -.09056
+     BSQ|     .98557***      .22452     4.39  .0000      .54551   1.42563
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+Line search at iteration  105 does not improve fn. Exiting optimization.
+
+-----------------------------------------------------------------------------
+Generalized Mixed (RP) Logit Model
+Dependent variable               CHOICE
+Log likelihood function      -518.69500
+Estimation based on N =    324, K =  20
+Inf.Cr.AIC  =   1077.4 AIC/N =    3.325
+Model estimated: Oct 03, 2017, 10:01:33
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+No coefficients  -355.9504 -.4572-.5036
+Constants only   -347.1816 -.4940-.5416
+At start values  -765.8299  .3227 .3011
+Response data are given as ind. choices
+Replications for simulated probs. = 100
+Halton sequences used for simulations
+RPL model with panel has      81 groups
+Fixed number of obsrvs./group=        4
+BHHH estimator used for asymp. variance
+Number of obs.=   324, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Random parameters in utility functions
+   BCOST|        1.0    .....(Fixed Parameter).....
+     BCL|   -57.7446       122.7902     -.47  .6382   -298.4090  182.9197
+     BSS|   -53.1356       111.3511     -.48  .6332   -271.3797  165.1085
+    BSOS|   -65.5680       161.8710     -.41  .6854   -382.8293  251.6933
+     BSQ|    8.23103       12.92050      .64  .5241   -17.09269  33.55474
+        |Heterogeneity in mean, Parameter:Variable
+BCOS:AME|     .30495         .45696      .67  .5046     -.59067   1.20057
+BCOS:BEN|        0.0    .....(Fixed Parameter).....
+BCO0:BEN|    40.5574***    10.55019     3.84  .0001     19.8794   61.2354
+BCOS:AGE|        0.0    .....(Fixed Parameter).....
+BCO0:AGE|        0.0    .....(Fixed Parameter).....
+BCOS:EDU|        0.0    .....(Fixed Parameter).....
+BCO0:EDU|        0.0    .....(Fixed Parameter).....
+BCOS:TIN|        0.0    .....(Fixed Parameter).....
+ BCL:AME|        0.0    .....(Fixed Parameter).....
+ BCL:BEN|        0.0    .....(Fixed Parameter).....
+BCL0:BEN|        0.0    .....(Fixed Parameter).....
+ BCL:AGE|        0.0    .....(Fixed Parameter).....
+BCL0:AGE|        0.0    .....(Fixed Parameter).....
+ BCL:EDU|        0.0    .....(Fixed Parameter).....
+BCL0:EDU|        0.0    .....(Fixed Parameter).....
+ BCL:TIN|        0.0    .....(Fixed Parameter).....
+ BSS:AME|   -24.1518       251.7184     -.10  .9236   -517.5108  469.2072
+ BSS:BEN|        0.0    .....(Fixed Parameter).....
+BSS0:BEN|        0.0    .....(Fixed Parameter).....
+ BSS:AGE|        0.0    .....(Fixed Parameter).....
+BSS0:AGE|        0.0    .....(Fixed Parameter).....
+ BSS:EDU|        0.0    .....(Fixed Parameter).....
+BSS0:EDU|        0.0    .....(Fixed Parameter).....
+ BSS:TIN|        0.0    .....(Fixed Parameter).....
+BSOS:AME|        0.0    .....(Fixed Parameter).....
+BSOS:BEN|        0.0    .....(Fixed Parameter).....
+BSO0:BEN|        0.0    .....(Fixed Parameter).....
+BSOS:AGE|        0.0    .....(Fixed Parameter).....
+BSO0:AGE|        0.0    .....(Fixed Parameter).....
+BSOS:EDU|        0.0    .....(Fixed Parameter).....
+BSO0:EDU|        0.0    .....(Fixed Parameter).....
+BSOS:TIN|        0.0    .....(Fixed Parameter).....
+ BSQ:AME|    9.74902       14.95195      .65  .5144   -19.55627  39.05431
+ BSQ:BEN|    8.24611       11.73248      .70  .4822   -14.74912  31.24135
+BSQ0:BEN|     .71282       29.33727      .02  .9806   -56.78717  58.21281
+ BSQ:AGE|    2.47178       13.56692      .18  .8554   -24.11888  29.06245
+BSQ0:AGE|    3.51465        7.97939      .44  .6596   -12.12466  19.15396
+ BSQ:EDU|    5.43511        7.74666      .70  .4829    -9.74806  20.61829
+BSQ0:EDU|     .75698       12.96512      .06  .9534   -24.65419  26.16814
+ BSQ:TIN|     .71596        7.29050      .10  .9218   -13.57316  15.00508
+        |Distns. of RPs. Std.Devs or limits of triangular
+ CsBCOST|        0.0    .....(Fixed Parameter).....
+   LsBCL|    1.08289       859.5405      .00  .9990 -1683.58560  1685.75138
+   LsBSS|     .84673       2522.561      .00  .9997 -4943.28195  4944.97542
+  LsBSOS|    2.48533       1003.818      .00  .9980 -1964.96166  1969.93232
+   UsBSQ|     .02084       448.3153      .00 1.0000  -878.66101  878.70269
+        |Variance parameter tau in GMX scale parameter
+TauScale|        0.0    .....(Fixed Parameter).....
+        |Weighting parameter gamma in GMX model
+GammaMXL|        0.0    .....(Fixed Parameter).....
+        |Coefficient on BCOST    in preference space form
+Beta0WTP|     .03661***      .00939     3.90  .0001      .01821    .05501
+S_b0_WTP|        0.0    .....(Fixed Parameter).....
+        |  Sample Mean    Sample Std.Dev.
+Sigma(i)|    1.00000***   .6790D-06 ********  .0000     1.00000   1.00000
+--------+--------------------------------------------------------------------
+Note: nnnnn.D-xx or D+xx => multiply by 10 to -xx or +xx.
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+Fixed parameter ... is constrained to equal the value or
+had a nonpositive st.error because of an earlier problem.
+-----------------------------------------------------------------------------
+
+Parameter Matrix for Heterogeneity in Means.
+|-> *****************
+    # WTP Space - Ovines
+    *****************
+    CALC;RAN(12345)$
+Error:    1: Unrecognized command.  (Missing ; ?)
+|-> GMXLOGIT
+    ;lhs=choice
+    ;choices=alt1,alt2,alt3
+    ;gamma=[1]
+    ;tau=[0]
+    ;pds=4
+    ;fcn=bcost(*n|#10100000),bcl(n|#00000000),bss(n|#10000000),bsos(n|#00000000),bsq(u)
+    ;GMX=amed,benefit1,benefit3,age1,age3,edu1,edu3,tin1
+    ;Draws=100
+    ;Halton
+    ;maxit=200
+    ;parameters
+    ;Model:
+    U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt3)=bsq*sq $
+Normal exit:   5 iterations. Status=0, F=    273.1932
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function      -273.19321
+Estimation based on N =    324, K =   5
+Inf.Cr.AIC  =    556.4 AIC/N =    1.717
+Model estimated: Oct 03, 2017, 10:05:20
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only   -347.1816  .2131 .1881
+Response data are given as ind. choices
+Number of obs.=   324, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+   BCOST|     .05477***      .00677     8.09  .0000      .04151    .06803
+     BCL|    -.47738***      .08947    -5.34  .0000     -.65274   -.30203
+     BSS|    -.23923**       .11079    -2.16  .0308     -.45638   -.02209
+    BSOS|    -.29663***      .10514    -2.82  .0048     -.50269   -.09056
+     BSQ|     .98557***      .22452     4.39  .0000      .54551   1.42563
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+Normal exit:  88 iterations. Status=0, F=    227.0698
+
+-----------------------------------------------------------------------------
+Generalized Mixed (RP) Logit Model
+Dependent variable               CHOICE
+Log likelihood function      -227.06981
+Restricted log likelihood    -355.95038
+Chi squared [  21 d.f.]       257.76114
+Significance level               .00000
+McFadden Pseudo R-squared      .3620745
+Estimation based on N =    324, K =  21
+Inf.Cr.AIC  =    496.1 AIC/N =    1.531
+Model estimated: Oct 03, 2017, 10:06:59
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+No coefficients  -355.9504  .3621 .3407
+Constants only   -347.1816  .3460 .3241
+At start values  -355.9504  .3621 .3407
+Response data are given as ind. choices
+Replications for simulated probs. = 100
+Halton sequences used for simulations
+RPL model with panel has      81 groups
+Fixed number of obsrvs./group=        4
+BHHH estimator used for asymp. variance
+Number of obs.=   324, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Random parameters in utility functions
+   BCOST|        1.0    .....(Fixed Parameter).....
+     BCL|   -12.8945***     3.50535    -3.68  .0002    -19.7649   -6.0241
+     BSS|   -4.40193        3.98494    -1.10  .2693   -12.21227   3.40841
+    BSOS|   -5.33083        3.95591    -1.35  .1778   -13.08426   2.42261
+     BSQ|   -1.13286       15.19463     -.07  .9406   -30.91379  28.64808
+        |Heterogeneity in mean, Parameter:Variable
+BCOS:AME|     .41286         .48829      .85  .3978     -.54417   1.36990
+BCOS:BEN|        0.0    .....(Fixed Parameter).....
+BCO0:BEN|    1.09795         .82570     1.33  .1836     -.52040   2.71630
+BCOS:AGE|        0.0    .....(Fixed Parameter).....
+BCO0:AGE|        0.0    .....(Fixed Parameter).....
+BCOS:EDU|        0.0    .....(Fixed Parameter).....
+BCO0:EDU|        0.0    .....(Fixed Parameter).....
+BCOS:TIN|        0.0    .....(Fixed Parameter).....
+ BCL:AME|        0.0    .....(Fixed Parameter).....
+ BCL:BEN|        0.0    .....(Fixed Parameter).....
+BCL0:BEN|        0.0    .....(Fixed Parameter).....
+ BCL:AGE|        0.0    .....(Fixed Parameter).....
+BCL0:AGE|        0.0    .....(Fixed Parameter).....
+ BCL:EDU|        0.0    .....(Fixed Parameter).....
+BCL0:EDU|        0.0    .....(Fixed Parameter).....
+ BCL:TIN|        0.0    .....(Fixed Parameter).....
+ BSS:AME|   -8.99889        7.23376    -1.24  .2135   -23.17680   5.17901
+ BSS:BEN|        0.0    .....(Fixed Parameter).....
+BSS0:BEN|        0.0    .....(Fixed Parameter).....
+ BSS:AGE|        0.0    .....(Fixed Parameter).....
+BSS0:AGE|        0.0    .....(Fixed Parameter).....
+ BSS:EDU|        0.0    .....(Fixed Parameter).....
+BSS0:EDU|        0.0    .....(Fixed Parameter).....
+ BSS:TIN|        0.0    .....(Fixed Parameter).....
+BSOS:AME|        0.0    .....(Fixed Parameter).....
+BSOS:BEN|        0.0    .....(Fixed Parameter).....
+BSO0:BEN|        0.0    .....(Fixed Parameter).....
+BSOS:AGE|        0.0    .....(Fixed Parameter).....
+BSO0:AGE|        0.0    .....(Fixed Parameter).....
+BSOS:EDU|        0.0    .....(Fixed Parameter).....
+BSO0:EDU|        0.0    .....(Fixed Parameter).....
+BSOS:TIN|        0.0    .....(Fixed Parameter).....
+ BSQ:AME|    31.0914       19.22349     1.62  .1058     -6.5859   68.7688
+ BSQ:BEN|    16.9691       13.01272     1.30  .1922     -8.5354   42.4736
+BSQ0:BEN|    26.0862       32.42400      .80  .4211    -37.4637   89.6360
+ BSQ:AGE|    5.84853       20.58296      .28  .7763   -34.49334  46.19040
+BSQ0:AGE|    3.80798        8.73663      .44  .6629   -13.31549  20.93145
+ BSQ:EDU|    4.56865        8.63931      .53  .5969   -12.36410  21.50139
+BSQ0:EDU|    7.59333       11.72140      .65  .5171   -15.38018  30.56684
+ BSQ:TIN|   -7.25854        8.22250     -.88  .3774   -23.37435   8.85727
+        |Distns. of RPs. Std.Devs or limits of triangular
+ CsBCOST|        0.0    .....(Fixed Parameter).....
+   NsBCL|    5.67183        4.90947     1.16  .2480    -3.95055  15.29422
+   NsBSS|    6.15959        4.57294     1.35  .1780    -2.80320  15.12238
+  NsBSOS|    21.1654***     5.12315     4.13  .0000     11.1242   31.2065
+   UsBSQ|    25.0420**      9.80275     2.55  .0106      5.8289   44.2550
+        |Variance parameter tau in GMX scale parameter
+TauScale|        0.0    .....(Fixed Parameter).....
+        |Weighting parameter gamma in GMX model
+GammaMXL|        0.0    .....(Fixed Parameter).....
+        |Coefficient on BCOST    in preference space form
+Beta0WTP|     .09752***      .02935     3.32  .0009      .03999    .15504
+S_b0_WTP|     .04569*        .02382     1.92  .0551     -.00100    .09238
+        |  Sample Mean    Sample Std.Dev.
+Sigma(i)|    1.00000***   .6790D-06 ********  .0000     1.00000   1.00000
+--------+--------------------------------------------------------------------
+Note: nnnnn.D-xx or D+xx => multiply by 10 to -xx or +xx.
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+Fixed parameter ... is constrained to equal the value or
+had a nonpositive st.error because of an earlier problem.
+-----------------------------------------------------------------------------
+
+Parameter Matrix for Heterogeneity in Means.

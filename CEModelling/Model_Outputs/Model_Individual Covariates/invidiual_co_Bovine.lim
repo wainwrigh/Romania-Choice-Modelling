@@ -1,0 +1,371 @@
+|-> RESET
+O---------------------------------------------------------O
+| NLOGIT 5  (tm)                 Sep 12, 2016, 09:51:12AM |
+| Econometric Software, Inc.     Copyright 1986-2012      |
+| Plainview, New York 11803                               |
+| Registered to                                           |
+|                                                         |
+| Registration Number                                     |
+O---------------------------------------------------------O
+-------Initializing NLOGIT Version 5 (May 1, 2012)---------
+-----------------------------------------------------------
+
+|-> IMPORT;FILE="H:\Romania\Romania_Most updated\Data_Analysis\Modelling\Spreadsheets\Sheep_analysis.csv"$
+Last observation read from data file was     972
+|-> *****************************
+    *****************************
+    CALC;Ran(12345)$
+Error:    1: Unrecognized command.  (Missing ; ?)
+|-> NLOGIT
+    ;lhs=choice
+    ;choices=alt1,alt2,alt3
+    ;rpl
+    ;fcn=bcl(n),bss(n),bsos(n),bcost(n),bsq(n)
+    ;Halton
+    ;pds=4
+    ;pts=100
+    ;correlation
+    ;Parameters
+    ;Model:
+    U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt3)=bsq*sq+bcl*cl+bss*ss+bsos*sos+bcost*cost$
+Normal exit:   5 iterations. Status=0, F=    273.1932
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function      -273.19321
+Estimation based on N =    324, K =   5
+Inf.Cr.AIC  =    556.4 AIC/N =    1.717
+Model estimated: Sep 12, 2016, 09:54:40
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only   -347.1816  .2131 .1881
+Response data are given as ind. choices
+Number of obs.=   324, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+     BCL|    -.47738***      .08947    -5.34  .0000     -.65274   -.30203
+     BSS|    -.23923**       .11079    -2.16  .0308     -.45638   -.02209
+    BSOS|    -.29663***      .10514    -2.82  .0048     -.50269   -.09056
+   BCOST|     .05477***      .00677     8.09  .0000      .04151    .06803
+     BSQ|     .98557***      .22452     4.39  .0000      .54551   1.42563
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+Normal exit:  52 iterations. Status=0, F=    232.3551
+
+-----------------------------------------------------------------------------
+Random Parameters Logit Model
+Dependent variable               CHOICE
+Log likelihood function      -232.35510
+Restricted log likelihood    -355.95038
+Chi squared [  20 d.f.]       247.19056
+Significance level               .00000
+McFadden Pseudo R-squared      .3472261
+Estimation based on N =    324, K =  20
+Inf.Cr.AIC  =    504.7 AIC/N =    1.558
+Model estimated: Sep 12, 2016, 09:55:21
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+No coefficients  -355.9504  .3472 .3264
+Constants only   -347.1816  .3307 .3094
+At start values  -273.1932  .1495 .1224
+Response data are given as ind. choices
+Replications for simulated probs. = 100
+Halton sequences used for simulations
+RPL model with panel has      81 groups
+Fixed number of obsrvs./group=        4
+Number of obs.=   324, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Random parameters in utility functions
+     BCL|    -.84724***      .18282    -4.63  .0000    -1.20556   -.48893
+     BSS|    -.61663**       .26169    -2.36  .0185    -1.12954   -.10372
+    BSOS|    -.53743         .39105    -1.37  .1693    -1.30388    .22901
+   BCOST|     .09525***      .01894     5.03  .0000      .05814    .13237
+     BSQ|    2.22478***      .63927     3.48  .0005      .97182   3.47773
+        |Diagonal values in Cholesky matrix, L.
+   NsBCL|     .22776         .46720      .49  .6259     -.68794   1.14346
+   NsBSS|     .09868         .45281      .22  .8275     -.78880    .98617
+  NsBSOS|     .10261         .55557      .18  .8535     -.98630   1.19151
+ NsBCOST|     .02866         .02592     1.11  .2688     -.02214    .07946
+   NsBSQ|     .48851         .67796      .72  .4712     -.84027   1.81729
+        |Below diagonal values in L matrix. V = L*Lt
+ BSS:BCL|     .08275         .51646      .16  .8727     -.92950   1.09500
+BSOS:BCL|    1.19741*        .64352     1.86  .0628     -.06386   2.45868
+BSOS:BSS|   -1.52540***      .58116    -2.62  .0087    -2.66445   -.38635
+BCOS:BCL|    -.03738         .03629    -1.03  .3030     -.10851    .03375
+BCOS:BSS|    -.01536         .03362     -.46  .6479     -.08125    .05054
+BCOS:BSO|    -.03122         .04738     -.66  .5099     -.12409    .06164
+ BSQ:BCL|   -2.12666**      1.00241    -2.12  .0339    -4.09135   -.16197
+ BSQ:BSS|     .81323        1.05946      .77  .4427    -1.26327   2.88972
+ BSQ:BSO|    -.49470        1.34928     -.37  .7139    -3.13924   2.14984
+ BSQ:BCO|    1.50017         .93361     1.61  .1081     -.32966   3.33001
+        |Standard deviations of parameter distributions
+   sdBCL|     .22776         .46720      .49  .6259     -.68794   1.14346
+   sdBSS|     .12879         .60357      .21  .8310    -1.05419   1.31176
+  sdBSOS|    1.94195***      .68656     2.83  .0047      .59631   3.28758
+ sdBCOST|     .05856*        .03144     1.86  .0625     -.00306    .12019
+   sdBSQ|    2.81388**      1.22503     2.30  .0216      .41287   5.21489
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+
+Correlation Matrix for Random Parameters
+--------+----------------------------------------------------------------------
+Cor.Mat.|           BCL           BSS          BSOS         BCOST           BSQ
+--------+----------------------------------------------------------------------
+     BCL|       1.00000       .642539       .616603      -.638279      -.755776
+     BSS|       .642539       1.00000      -.205700      -.611040      -.264164
+    BSOS|       .616603      -.205700       1.00000      -.215768      -.702316
+   BCOST|      -.638279      -.611040      -.215768       1.00000       .761295
+     BSQ|      -.755776      -.264164      -.702316       .761295       1.00000
+--------+----------------------------------------------------------------------
+|-> *****************************
+    *****************************
+    CALC;Ran(12345)$
+Error:    1: Unrecognized command.  (Missing ; ?)
+|-> NLOGIT
+    ;lhs=choice
+    ;choices=alt1,alt2,alt3
+    ;rpl
+    ;fcn=bcl(n),bss(n),bsos(n),bcost(n),bsq(n)
+    ;Halton
+    ;pds=4
+    ;pts=1000
+    ;correlation
+    ;Parameters
+    ;Model:
+    U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt3)=bsq*sq+bcl*cl+bss*ss+bsos*sos+bcost*cost$
+Normal exit:   5 iterations. Status=0, F=    273.1932
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function      -273.19321
+Estimation based on N =    324, K =   5
+Inf.Cr.AIC  =    556.4 AIC/N =    1.717
+Model estimated: Sep 12, 2016, 10:16:41
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only   -347.1816  .2131 .1881
+Response data are given as ind. choices
+Number of obs.=   324, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+     BCL|    -.47738***      .08947    -5.34  .0000     -.65274   -.30203
+     BSS|    -.23923**       .11079    -2.16  .0308     -.45638   -.02209
+    BSOS|    -.29663***      .10514    -2.82  .0048     -.50269   -.09056
+   BCOST|     .05477***      .00677     8.09  .0000      .04151    .06803
+     BSQ|     .98557***      .22452     4.39  .0000      .54551   1.42563
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+Maximum of   100 iterations. Exit iterations with status=1.
+
+-----------------------------------------------------------------------------
+Random Parameters Logit Model
+Dependent variable               CHOICE
+Log likelihood function      -233.39578
+Restricted log likelihood    -355.95038
+Chi squared [  20 d.f.]       245.10920
+Significance level               .00000
+McFadden Pseudo R-squared      .3443025
+Estimation based on N =    324, K =  20
+Inf.Cr.AIC  =    506.8 AIC/N =    1.564
+Model estimated: Sep 12, 2016, 10:29:55
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+No coefficients  -355.9504  .3443 .3234
+Constants only   -347.1816  .3277 .3063
+At start values  -273.1932  .1457 .1185
+Response data are given as ind. choices
+Replications for simulated probs. =1000
+Halton sequences used for simulations
+RPL model with panel has      81 groups
+Fixed number of obsrvs./group=        4
+BHHH estimator used for asymp. variance
+Number of obs.=   324, skipped    0 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Random parameters in utility functions
+     BCL|    -.90089***      .33581    -2.68  .0073    -1.55906   -.24272
+     BSS|    -.63827         .39634    -1.61  .1073    -1.41508    .13853
+    BSOS|    -.45276         .39343    -1.15  .2498    -1.22387    .31834
+   BCOST|     .09075***      .02594     3.50  .0005      .03990    .14159
+     BSQ|    2.07646**       .87068     2.38  .0171      .36996   3.78297
+        |Diagonal values in Cholesky matrix, L.
+   NsBCL|     .26382         .66278      .40  .6906    -1.03519   1.56284
+   NsBSS|     .31820         .94065      .34  .7352    -1.52543   2.16183
+  NsBSOS|    1.47287        2.90077      .51  .6116    -4.21253   7.15827
+ NsBCOST|     .03764         .29363      .13  .8980     -.53787    .61315
+   NsBSQ|     .44346        4.89254      .09  .9278    -9.14573  10.03266
+        |Below diagonal values in L matrix. V = L*Lt
+ BSS:BCL|    -.08847        1.27707     -.07  .9448    -2.59148   2.41454
+BSOS:BCL|    1.17893        3.59087      .33  .7427    -5.85904   8.21690
+BSOS:BSS|     .25349        3.79766      .07  .9468    -7.18979   7.69678
+BCOS:BCL|    -.03441         .14597     -.24  .8136     -.32050    .25167
+BCOS:BSS|    -.02407         .17506     -.14  .8906     -.36719    .31904
+BCOS:BSO|     .01572         .22965      .07  .9454     -.43439    .46583
+ BSQ:BCL|   -2.32007        7.75778     -.30  .7649   -17.52503  12.88490
+ BSQ:BSS|    -.50971        8.64441     -.06  .9530   -17.45245  16.43302
+ BSQ:BSO|    -.48279       10.56810     -.05  .9636   -21.19589  20.23031
+ BSQ:BCO|    1.28989       10.86770      .12  .9055   -20.01041  22.59020
+        |Standard deviations of parameter distributions
+   sdBCL|     .26382         .66278      .40  .6906    -1.03519   1.56284
+   sdBSS|     .33027         .84901      .39  .6973    -1.33376   1.99430
+  sdBSOS|    1.90355**       .78829     2.41  .0157      .35853   3.44856
+ sdBCOST|     .05855         .25336      .23  .8172     -.43802    .55512
+   sdBSQ|    2.78138        9.90397      .28  .7788   -16.63003  22.19280
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+
+Correlation Matrix for Random Parameters
+--------+----------------------------------------------------------------------
+Cor.Mat.|           BCL           BSS          BSOS         BCOST           BSQ
+--------+----------------------------------------------------------------------
+     BCL|       1.00000      -.267863       .619333      -.587792      -.834141
+     BSS|      -.267863       1.00000     -.0375941      -.238719      .0468734
+    BSOS|       .619333     -.0375941       1.00000      -.211036      -.675323
+   BCOST|      -.587792      -.238719      -.211036       1.00000       .817201
+     BSQ|      -.834141      .0468734      -.675323       .817201       1.00000
+--------+----------------------------------------------------------------------
+|-> DELETE;*$
+|-> IMPORT;FILE="H:\Romania\Romania_Most updated\Data_Analysis\Modelling\Spreadsheets\Bovine_analysis.csv"$
+Last observation read from data file was    1404
+|-> *****************************
+    *****************************
+    CALC;Ran(12345)$
+Error:    1: Unrecognized command.  (Missing ; ?)
+|-> NLOGIT
+    ;lhs=choice
+    ;choices=alt1,alt2,alt3
+    ;rpl
+    ;fcn=bcl(n),bss(n),bsos(n),bcost(n),bsq(n)
+    ;Halton
+    ;pds=4
+    ;pts=1000
+    ;correlation
+    ;Parameters
+    ;Model:
+    U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+    U(alt3)=bsq*sq+bcl*cl+bss*ss+bsos*sos+bcost*cost$
+
++------------------------------------------------------+
+|WARNING:   Bad observations were found in the sample. |
+|Found  15 bad observations among     468 individuals. |
+|You can use ;CheckData to get a list of these points. |
++------------------------------------------------------+
+
+Normal exit:   5 iterations. Status=0, F=    397.7177
+
+-----------------------------------------------------------------------------
+Start values obtained using MNL model
+Dependent variable               Choice
+Log likelihood function      -397.71767
+Estimation based on N =    453, K =   5
+Inf.Cr.AIC  =    805.4 AIC/N =    1.778
+Model estimated: Sep 12, 2016, 12:04:43
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+Constants only   -490.3569  .1889 .1706
+Response data are given as ind. choices
+Number of obs.=   468, skipped   15 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+     BCL|    -.27382***      .06773    -4.04  .0001     -.40657   -.14106
+     BSS|     .07640         .07919      .96  .3347     -.07881    .23162
+    BSOS|    -.41565***      .07927    -5.24  .0000     -.57101   -.26029
+   BCOST|     .00297***      .00027    11.08  .0000      .00244    .00349
+     BSQ|    1.09557***      .17825     6.15  .0000      .74621   1.44494
+--------+--------------------------------------------------------------------
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+Normal exit:  81 iterations. Status=0, F=    335.5776
+
+-----------------------------------------------------------------------------
+Random Parameters Logit Model
+Dependent variable               CHOICE
+Log likelihood function      -335.57756
+Restricted log likelihood    -497.67137
+Chi squared [  20 d.f.]       324.18761
+Significance level               .00000
+McFadden Pseudo R-squared      .3257045
+Estimation based on N =    453, K =  20
+Inf.Cr.AIC  =    711.2 AIC/N =    1.570
+Model estimated: Sep 12, 2016, 12:18:44
+R2=1-LogL/LogL* Log-L fncn R-sqrd R2Adj
+No coefficients  -497.6714  .3257 .3105
+Constants only   -490.3569  .3156 .3002
+At start values  -397.7177  .1562 .1372
+Response data are given as ind. choices
+Replications for simulated probs. =1000
+Halton sequences used for simulations
+RPL model with panel has     117 groups
+Fixed number of obsrvs./group=        4
+Number of obs.=   468, skipped   15 obs
+--------+--------------------------------------------------------------------
+        |                  Standard            Prob.      95% Confidence
+  CHOICE|  Coefficient       Error       z    |z|>Z*         Interval
+--------+--------------------------------------------------------------------
+        |Random parameters in utility functions
+     BCL|    -.93517***      .17977    -5.20  .0000    -1.28750   -.58283
+     BSS|    -.22251         .26918     -.83  .4085     -.75010    .30508
+    BSOS|    -.75607**       .35267    -2.14  .0320    -1.44729   -.06484
+   BCOST|     .00622***      .00104     5.96  .0000      .00418    .00827
+     BSQ|    2.87964***      .65044     4.43  .0000     1.60481   4.15447
+        |Diagonal values in Cholesky matrix, L.
+   NsBCL|     .06572         .41041      .16  .8728     -.73867    .87011
+   NsBSS|     .17723         .74385      .24  .8117    -1.28069   1.63516
+  NsBSOS|    1.35314        1.04317     1.30  .1946     -.69144   3.39773
+ NsBCOST|     .00025         .00259      .10  .9222     -.00482    .00533
+   NsBSQ|     .50314         .85718      .59  .5572    -1.17690   2.18318
+        |Below diagonal values in L matrix. V = L*Lt
+ BSS:BCL|   -1.22945***      .31490    -3.90  .0001    -1.84665   -.61225
+BSOS:BCL|     .18235         .72448      .25  .8013    -1.23761   1.60231
+BSOS:BSS|    1.71103*        .87404     1.96  .0503     -.00205   3.42411
+BCOS:BCL| .72450D-04         .00244      .03  .9763 -.47046D-02  .48495D-02
+BCOS:BSS|    -.00240*        .00129    -1.86  .0635     -.00493    .00013
+BCOS:BSO|     .00109         .00177      .62  .5371     -.00238    .00457
+ BSQ:BCL|    1.66467        1.38454     1.20  .2292    -1.04897   4.37832
+ BSQ:BSS|   -1.84132        1.17602    -1.57  .1174    -4.14628    .46364
+ BSQ:BSO|     .23858         .86547      .28  .7828    -1.45771   1.93488
+ BSQ:BCO|    1.52345        1.61480      .94  .3455    -1.64150   4.68841
+        |Standard deviations of parameter distributions
+   sdBCL|     .06572         .41041      .16  .8728     -.73867    .87011
+   sdBSS|    1.24216***      .34439     3.61  .0003      .56716   1.91716
+  sdBSOS|    2.18904***      .45504     4.81  .0000     1.29718   3.08089
+ sdBCOST|     .00265         .00167     1.58  .1137     -.00063    .00593
+   sdBSQ|    2.96523**      1.41273     2.10  .0358      .19632   5.73413
+--------+--------------------------------------------------------------------
+Note: nnnnn.D-xx or D+xx => multiply by 10 to -xx or +xx.
+Note: ***, **, * ==>  Significance at 1%, 5%, 10% level.
+-----------------------------------------------------------------------------
+
+
+Correlation Matrix for Random Parameters
+--------+----------------------------------------------------------------------
+Cor.Mat.|           BCL           BSS          BSOS         BCOST           BSQ
+--------+----------------------------------------------------------------------
+     BCL|       1.00000      -.989769      .0833031      .0273550       .561398
+     BSS|      -.989769       1.00000      .0290746      -.156225      -.644256
+    BSOS|      .0833031      .0290746       1.00000      -.449751      -.388871
+   BCOST|      .0273550      -.156225      -.449751       1.00000       .659771
+     BSQ|       .561398      -.644256      -.388871       .659771       1.00000
+--------+----------------------------------------------------------------------

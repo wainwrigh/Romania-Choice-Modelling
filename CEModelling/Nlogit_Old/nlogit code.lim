@@ -1,0 +1,73 @@
+*****************************
+*****************************
+? RPL for Sheep
+*****************************
+
+CALC;Ran(12345)$
+NLOGIT
+;lhs=choice
+;choices=alt1,alt2,alt3
+;rpl=FRB
+;fcn=bcl(n|#1),bss(n|#1),bsos(n|#1),bcost(n|#1)
+;Halton
+;pds=4
+;pts=200
+;correlation
+;Model:
+U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+U(alt3)=sq+bcl*cl+bss*ss+bsos*sos+bcost*cost$
+
+	
+ ?;RPL = Benefit1,Benefit2,Benefit3
+?;Fcn = gc(n),
+	?cl (n|#111)
+	?ss (n|#111)
+	?sos (n|#111)
+	?cost (n|#111)	
+
+*****************************
+? RPL for Bovine
+*****************************
+
+CALC;Ran(12345)$
+NLOGIT
+;lhs=choice
+;choices=alt1,alt2,alt3
+;rpl
+;fcn=bcl[n],bss[n],bsos[n],bcost[n]
+;Halton
+;pds=4
+;pts=10
+?;correlation
+;Model:
+U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*cost/
+U(alt3)=bsq*sq$
+
+*****************
+? WTP - Scotland
+*****************
+CALC;RAN(12345)$
+CREATE
+;n_cost=-cost$
+GMXLOGIT
+;lhs=choice
+;choices=alt1,alt2,alt3
+;gamma=[1]
+;tau=[0]
+;pds=4
+;fcn=bcost(*l),bcl[n],bss[n],bsos[n]
+;Draws=10
+;Halton
+;maxit=20
+?;correlation
+;parameters
+;Model:
+U(alt1)=bcl*cl+bss*ss+bsos*sos+bcost*n_cost/
+U(alt2)=bcl*cl+bss*ss+bsos*sos+bcost*n_cost/
+U(alt3)=sq+bcl*cl+bss*ss+bsos*sos+bcost*n_cost$
+
+
+
+
